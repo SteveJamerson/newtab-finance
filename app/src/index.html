@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Finance</title>
+   </head>
+   <body>
+      <nav class="nav">
+         <div class="nav-content">
+            <img src="./assets/images/logo.svg" alt="" />
+            <h2 class="nav-title">Controle financeiro</h2>
+            <button class="nav-toggle" type="button"></button>
+            <ul class="nav-links">
+               <li class="nav-link active">
+                  <a href="#">Dashboard</a>
+               </li>
+               <li class="nav-link"><a href="#">Resumo</a></li>
+               <li class="nav-link"><a href="#">Configurações</a></li>
+            </ul>
+         </div>
+      </nav>
+      <div class="container" style="margin-top: 2rem">
+         <div class="row gap-y-4">
+            <div class="col-12 col-lg-5 col-xl-4">
+               <form class="form-add" name="form-add">
+                  <h5>Nova transação</h5>
+                  <div class="row">
+                     <fieldset class="col-12 col-md-3 col-lg-12">
+                        <label for="type">Tipe de transação</label>
+                        <select name="type" id="type" class="field">
+                           <option value="" hidden>Selecione uma opção</option>
+                           <option value="">Compra</option>
+                           <option value="">Venda</option>
+                        </select>
+                     </fieldset>
+                     <fieldset class="col-12 col-md-6 col-lg-12">
+                        <label for="name">Nome da mercadoria</label>
+                        <input
+                           type="text"
+                           name="name"
+                           id="name"
+                           class="field"
+                           placeholder="Insira o nome"
+                        />
+                     </fieldset>
+                     <fieldset class="col-12 col-md-3 col-lg-12">
+                        <label for="value">Valor</label>
+                        <input
+                           type="number"
+                           name="value"
+                           id="value"
+                           class="field"
+                           placeholder="R$ 0,00"
+                        />
+                     </fieldset>
+                  </div>
+                  <button class="button full primary" type="submit">
+                     Adicionar transação
+                  </button>
+               </form>
+            </div>
+            <div class="col">
+               <div class="invoice">
+                  <h5>Extrato de transações</h5>
+                  <table class="table">
+                     <thead>
+                        <tr>
+                           <td></td>
+                           <th>Mercadoria</th>
+                           <th>Valor</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>+</td>
+                           <td>Lorem ipsum dolor sit amet consectetur</td>
+                           <td>R$ 12.999,99</td>
+                        </tr>
+                        <tr>
+                           <td>-</td>
+                           <td>Lorem ipsum dolor sit amet consectetur</td>
+                           <td>R$ 99,99</td>
+                        </tr>
+                        <tr>
+                           <td>+</td>
+                           <td>Lorem ipsum dolor sit amet consectetur</td>
+                           <td>R$ 9,99</td>
+                        </tr>
+                     </tbody>
+                     <tfoot>
+                        <tr>
+                           <td></td>
+                           <th>Total</th>
+                           <td>
+                              <p><b>R$ 12.909,99</b></p>
+                              <small>[LUCRO]</small>
+                           </td>
+                        </tr>
+                     </tfoot>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
