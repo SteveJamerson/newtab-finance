@@ -1,0 +1,115 @@
+.nav {
+   position: static;
+   top: 0;
+   background-color: $gray-1;
+   color: $color-body;
+
+   &-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      min-height: 60px;
+      gap: 1rem;
+      @extend .container;
+
+      @include break("md") {
+         justify-content: start;
+      }
+   }
+
+   &-title {
+      font-size: 1.5rem;
+      margin: 0;
+   }
+
+   &-toggle {
+      &,
+      &::before,
+      &::after {
+         position: relative;
+         top: 0px;
+         left: 0;
+         width: 1.5rem;
+         height: 0.125rem;
+         border: 0 {
+            radius: 5px;
+         }
+         background-color: $gray-6;
+         color: $gray-6;
+         transition: .3s;
+      }
+
+      &::before,
+      &::after {
+         content: "";
+         display: block;
+         position: absolute;
+      }
+    
+      &::before {
+         transform: translateY(-0.5rem);
+      }
+
+      &::after {
+         transform: translateY(0.5rem);
+      }
+
+      &.opened {
+         background-color: transparent;
+         
+         &::before {
+            transform: translateY(0) rotate(45deg);
+         }
+
+         &::after {
+            transform: translateY(0) rotate(-45deg);
+         }
+      }
+
+      @include break("md") {
+         display: none;
+      }
+   }
+
+   &-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      margin-left: auto;
+
+      background-color: $white;
+      color: $color-body;
+      padding: 0.25rem 1.25rem;
+
+      font: {
+         weight: 600;
+      }
+
+      display: none;
+   }
+
+   &-link {
+      padding: 0 1.25rem;
+
+      &:first-child {
+         padding-left: 0;
+      }
+      &:last-child {
+         padding-right: 0;
+      }
+      & + & {
+         border-left: 1px solid $gray-1;
+      }
+
+      a {
+         text-decoration: none;
+         color: inherit;
+      }
+   }
+}
