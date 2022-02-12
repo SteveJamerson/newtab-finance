@@ -7,18 +7,39 @@
       <title>Finance</title>
    </head>
    <body>
-      <nav class="nav">
-         <div class="nav-content">
-            <img src="./assets/images/logo.svg" alt="" />
-            <h2 class="nav-title">Controle financeiro</h2>
-            <button class="nav-toggle" type="button"></button>
-            <ul class="nav-links">
-               <li class="nav-link active">
-                  <a href="#">Dashboard</a>
-               </li>
-               <li class="nav-link"><a href="#">Resumo</a></li>
-               <li class="nav-link"><a href="#">Configurações</a></li>
-            </ul>
+      <nav class="navbar">
+         <div class="navbar-content">
+            <div class="navbar-brand">
+               <img src="./assets/images/logo.svg" alt="" />
+               <h5>Controle financeiro</h5>
+               <button
+                  class="navbar-toggle"
+                  data-active="navbar-nav"
+                  type="button"
+               >
+                  <span class="navbar-toggle-icon"></span>
+               </button>
+            </div>
+            <div class="navbar-nav" id="navbar-nav">
+               <ul class="navbar-links">
+                  <li class="navbar-close">
+                     <button
+                        class="navbar-toggle"
+                        data-active="navbar-nav"
+                        type="button"
+                     >
+                        <span class="navbar-toggle-icon"></span>
+                     </button>
+                  </li>
+                  <li class="navbar-link">
+                     <a href="#">Dashboard</a>
+                  </li>
+                  <li class="navbar-link"><a href="#">Resumo</a></li>
+                  <li class="navbar-link active">
+                     <a href="#">Configurações</a>
+                  </li>
+               </ul>
+            </div>
          </div>
       </nav>
       <div class="container" style="margin-top: 2rem">
