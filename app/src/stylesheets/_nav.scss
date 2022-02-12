@@ -188,7 +188,7 @@
    }
 
    &-link {
-      padding: 0 1rem;
+      padding: .375rem 1rem;
       font-weight: 600;
       cursor: pointer;
       transition: 0.3s;
@@ -207,6 +207,8 @@
       }
 
       @include break("md") {
+         padding: 0 1rem;
+
          & + & {
             border-left: 1px solid $gray-1;
          }
