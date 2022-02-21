@@ -7,26 +7,25 @@ module.exports = {
    entry: "./app/src/javascripts/app.js",
    output: {
       filename: "bundle.js",
-      path: path.resolve(__dirname, "app/dist"),
-      clean: true,
+      path: path.resolve(__dirname, "./dist"),
    },
    module: {
-     rules: [
-       {
-         test: /\.s[ac]ss$/i,
-         use: [
-           process.env.NODE_ENV !== "production"
-             ? "style-loader"
-             : MiniCssExtractPlugin.loader,
-           "css-loader",
-           "sass-loader",
-         ],
-       },
-       {
-         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-         type: 'asset/resource',
-       },
-     ],
+      rules: [
+         {
+            test: /\.s[ac]ss$/i,
+            use: [
+               process.env.NODE_ENV !== "production"
+                  ? "style-loader"
+                  : MiniCssExtractPlugin.loader,
+               "css-loader",
+               "sass-loader",
+            ],
+         },
+         {
+            test: /\.(png|svg|jpg|jpeg|gif)$/i,
+            type: "asset/resource",
+         },
+      ],
    },
    plugins: [
       new HtmlWebpackPlugin({
@@ -35,12 +34,12 @@ module.exports = {
          hash: true,
       }),
       new MiniCssExtractPlugin({
-        filename: "[name].css",
-        chunkFilename: "[id].css",
+         filename: "[name].css",
+         chunkFilename: "[id].css",
       }),
       new CopyPlugin({
          patterns: [
-           { from: path.resolve(__dirname, "app/src/assets"), to: "assets/" },
+            { from: path.resolve(__dirname, "app/src/assets"), to: "assets/" },
          ],
       }),
    ],
