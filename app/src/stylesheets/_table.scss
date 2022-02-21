@@ -20,4 +20,9 @@
       vertical-align: baseline;
       border-top: 0.25rem double $gray-1;
    }
+
+   &-responsive {
+      width: 100%;
+      overflow-x: auto;
+   }
 }
