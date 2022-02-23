@@ -2,8 +2,12 @@ import { amount } from "../utils/amount.js";
 import { View } from "./view.js";
 
 export class TransactionsView extends View {
-   template(model) {
-      return /*html*/ `
+   template(model, loading) {
+      if (loading)
+         return /*html*/ `<tbody class="loading"><tr><td>loading</td></tr></tbody>`;
+      return !model.list().length
+         ? /*html*/ `<tbody class="empty"><tr><td>Sem registros</td></tr></tbody>`
+         : /*html*/ `
             <thead>
                <tr>
                   <td></td>
@@ -25,7 +29,9 @@ export class TransactionsView extends View {
                             </td>
                             <td>
                                 ${transaction.quantity}
-                                <small>x ${transaction.price}</small>
+                                <small>x ${this._formatPrice(
+                                   transaction.price
+                                )}</small>
                             </td>
                             <td>
                                 ${this._formatPrice(transaction.amount)}
@@ -44,7 +50,14 @@ export class TransactionsView extends View {
                      <p><b>${this._profit(
                         model.list().map((t) => t.amount)
                      )}</b></p>
-                     <small>[LUCRO]</small>
+                     <small>[${
+                        this._profit(
+                           model.list().map((t) => t.amount),
+                           "number"
+                        ) >= 0
+                           ? "LUCRO"
+                           : "PREJUIZO"
+                     }]</small>
                   </td>
                </tr>
             </tfoot>
@@ -55,9 +68,13 @@ export class TransactionsView extends View {
       return new Intl.DateTimeFormat().format(date);
    }
 
-   _profit(values) {
+   _profit(values, type = "currency") {
       const price = values.reduce((amount, value) => amount + (value || 0), 0);
-      return amount(price);
+      if (type === "currency") {
+         return amount(price);
+      } else {
+         return price;
+      }
    }
 
    _formatPrice(price) {

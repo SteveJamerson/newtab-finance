@@ -10,12 +10,12 @@ export class View {
       }
    }
 
-   update(model) {
-      let template = this.template(model);
+   update(model, loading) {
+      let template = this.template(model, loading);
       this.elemento.innerHTML = template;
    }
 
-   template(model) {
+   template(model, loading) {
       throw Error(`Template não implementado.`);
    }
 }
