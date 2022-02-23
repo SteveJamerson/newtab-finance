@@ -16,8 +16,7 @@ _or_
 yarn install
 ```
 
-### Create
-environment.js in [`app\javascripts`](https://github.com/SteveJamerson/newtab-finance/tree/master/app/src/javascripts)
+### Update environment.js
 ```bash
 export const environment = {
    PATH: "https://api.airtable.com/v0",
