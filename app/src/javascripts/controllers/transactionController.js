@@ -6,14 +6,15 @@ import { TransactionsView } from "../views/transactionsView.js";
 
 export class TransactionController {
    _transactions = new Transactions();
-   _transactionsView = new TransactionsView("#invoiceView");
+   _transactionsView;
    _transactionService = new TransactionService();
    _form;
    id = null;
    loading = true;
 
-   constructor(_form) {
+   constructor(_form, _view) {
       this._form = _form;
+      this._transactionsView = new TransactionsView(_view);
       this._transactionsView.update(this._transactions);
       this.init();
    }
@@ -85,6 +86,8 @@ export class TransactionController {
       this._transactionService[this.id ? "patch" : "post"](data, this.id).then(
          ({ id }) => (this.id = id)
       );
+
+      this._clearForm();
    }
 
    delete(index) {

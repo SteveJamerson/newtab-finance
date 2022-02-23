@@ -1,5 +1,4 @@
 import { environment } from "../environment.js";
-
 export class TransactionService {
    _url = `${environment.PATH}/${environment.KEY}/Historico`;
    _headers = new Headers({
