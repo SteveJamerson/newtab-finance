@@ -36,7 +36,6 @@ export class Transaction {
    }
 
    get date() {
-      console.log(this._date);
       const date = new Date(this._date.getTime());
       return date;
    }
