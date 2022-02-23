@@ -5,11 +5,15 @@
    padding: calc(0.375rem - 1px);
    color: $color-body;
    background-color: transparent;
-   border: 1px solid $gray-1{
-      radius: .25rem;
-   };
+   border: 1px solid $gray-1 {
+      radius: 0.25rem;
+   }
 
    &::placeholder {
       color: $gray-2;
-   };
+   }
+
+   &.invalid {
+      border-color: $color-error;
+   }
 }
