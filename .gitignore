@@ -2,4 +2,5 @@
 package-lock.json
 environment.js
 yarn.lock
+/coverage
 **/dist
